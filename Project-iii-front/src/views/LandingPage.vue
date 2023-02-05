@@ -47,7 +47,7 @@
         <section id="banner">
           <router-link to="https://www.facebook.com/?ref=tn_tnmn" target="_blank">
             <q-img fit="cover" loading="lazy" width="100%" height="400px"
-              src="https://intphcm.com/data/upload/banner-la-gi.jpg"></q-img>
+              src="https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg"></q-img>
           </router-link>
         </section>
         <h5 class="text-weight-bold">Việc làm gợi ý</h5>
@@ -60,7 +60,7 @@
             </router-link>
           </strong>
         </h5>
-        <CarouselJob :arrayJob="popularJobs1" :isHot="false" :key="keyRenderUI"></CarouselJob>
+        <div class="cover"><CarouselJob :arrayJob="popularJobs1" :isHot="false" :key="keyRenderUI"></CarouselJob></div>
 
         <h5 class="">Việc làm nổi bật ngành <strong>
             <router-link to="https://www.facebook.com/?ref=tn_tnmn">
@@ -124,7 +124,7 @@ export default {
     _getSliceArr(arr) {
       let new_arr = [];
       let from = 0;
-      let range = 9;
+      let range = 6;
       while (from < arr.length) {
         new_arr.push(arr.slice(from, from + range))
         from = from + range;
@@ -182,13 +182,20 @@ export default {
   color: $warning
 }
 .my-top-company:hover {
-  border-color: aquamarine;
+  border-color: rgb(172, 218, 19);
   border-width: 1px;
 }
 
-#container-carousel-top-area {}
+// #container-carousel-top-area {}
 
 #banner {
   margin-top: 40px
+}
+
+.cover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 </style>

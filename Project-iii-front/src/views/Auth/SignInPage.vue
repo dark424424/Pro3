@@ -3,7 +3,7 @@
         <div class="column">
             <div class="row">
                 <router-link to="/">
-                    <h5 class="text-h5 text-negative q-my-md">Thai networking</h5>
+                    <h5 class="text-h5 text-negative q-my-md">Long Study</h5>
                 </router-link>
             </div>
             <div class="row">

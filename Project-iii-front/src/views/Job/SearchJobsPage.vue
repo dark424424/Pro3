@@ -13,7 +13,7 @@
                 <span class="text-subtitle1"><strong>{{ totalResult }}</strong> việc làm phù hợp</span>
               </div>
               <div class=" flex flex-center q-mr-md">
-                <q-pagination v-if="totalResult != 0" v-model="current" :max="totalResult / 50 + 1" :max-pages="6"
+                <q-pagination v-if="totalResult != 0" v-model="current" :max="totalResult / 10 + 1" :max-pages="6"
                   boundary-numbers outline color="negative" active-design="unelevated" active-color="negative"
                   active-text-color="white" />
               </div>
@@ -28,7 +28,7 @@
                 </q-item-section>
               </q-item>
               <div class=" flex flex-center">
-                <q-pagination v-model="current" v-if="totalResult != 0" :max="totalResult / 50 + 1" :max-pages="6"
+                <q-pagination v-model="current" v-if="totalResult != 0" :max="totalResult / 10 + 1" :max-pages="6"
                   boundary-numbers outline color="negative" active-design="unelevated" active-color="negative"
                   active-text-color="white" />
               </div>
@@ -78,10 +78,10 @@ export default {
     let searchResult = [];
     let totalResult = 0;
     let array = [
-      "https://loremflickr.com/1280/720/banner?lock=23423",
-      'https://loremflickr.com/1280/720/banner?lock=55346',
-      "https://loremflickr.com/1280/720/banner?lock=12455",
-      "https://loremflickr.com/1280/720/banner?lock=75543"
+      "https://cdn.pixabay.com/photo/2015/06/19/21/24/avenue-815297__480.jpg",
+      'https://thumbs.dreamstime.com/b/forest-panorama-rays-sunlight-scenic-fresh-green-deciduous-trees-sun-casting-its-light-foliage-53826213.jpg',
+      "https://www.shutterstock.com/image-photo/beautiful-mystical-forest-blue-fog-260nw-1202082955.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSamvXQBk6GI-g1a8xGPGc-RRWbSE6Sxy6iuQ&usqp=CAU"
     ]
     return {
       searchStore, searchResult, totalResult, array, current: ref(1), loading: true
@@ -150,7 +150,7 @@ export default {
     _getSearch({ text, filter, pageNumber }) {
       this.loading = true;
       // console.log(pageNumber);
-      searchJob({ text, filter, pageNumber, limit: 50 }).then(data => {
+      searchJob({ text, filter, pageNumber, limit: 10 }).then(data => {
         if (data) {
           this.searchResult = data.data
           this.totalResult = data.total;
@@ -164,5 +164,5 @@ export default {
 }
 </script>
 <style lang="scss">
-.p-container {}
+// .p-container {}
 </style>

@@ -7,7 +7,7 @@
                 <div class="flex justify-center items-center">
 
                     <div class="q-mb-xl">
-                        <q-img width="200px" src="@/assets/images/logo.png"></q-img>
+                        <q-img width="200px" src="@/assets/images/justlogo2.png"></q-img>
                     </div>
                     <q-carousel v-model="slide" transition-prev="slide-right" transition-next="slide-left" swipeable
                         animated infinite :autoplay="autoplay" control-color="white" navigation padding height="500px"

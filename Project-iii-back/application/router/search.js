@@ -31,33 +31,7 @@ router.post("/company" , async(req,res)=>{
     }
 })
 
-// router.post("/candidate", auth.required, authorize.canSearchCandidate,  async(req,res)=>{
-//     try {
-//         const {pageNumber, limit} = req.query
-//         const {companyId } = req
-//         const result = await searchService.searchCandidate( companyId, req.body , pageNumber, limit);
-//         res.json(result);
-//     } catch (err) {
-//         res.status(400);
-//         res.json({
-//             code: err.message
-//         })
-//     }
-// })
 
-
-// router.get("/candidate-for-company", auth.required, authorize.isCompany,  async(req,res)=>{
-//     try {
-//         const {pageNumber, limit } = req.query
-//         const result = await searchService.searchCandidateForCompany(req.companyId, pageNumber, limit);
-//         res.json(result);
-//     } catch (err) {
-//         res.status(400);
-//         res.json({
-//             code: err.message
-//         })
-//     }
-// })
 
 
 module.exports = router;

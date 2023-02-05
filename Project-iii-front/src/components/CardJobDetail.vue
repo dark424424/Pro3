@@ -1,7 +1,7 @@
 <template >
     <div v-if="jobDetail">
         <div v-if="isMinimize" class="minimize-card ">
-            <q-card class="my-card fit row no-wrap selected-card ">
+            <q-card class="my-card fit row no-wrap selected-card items-center justify-center background-red relative-position">
                 <div>
                     <router-link cursor-pointer :to="'/cong-ty/' + jobDetail.companyId.info.name">
                         <q-img fit="contain" class='col-1' loading="lazy" width='100px' ratio="1"
@@ -18,21 +18,21 @@
                         </q-tooltip>
                     </router-link>
                     <router-link cursor-pointer :to="'/cong-ty/' + jobDetail.companyId.info.name">
-                        <span class="hover text-caption text-length">{{ jobDetail.companyId.info.name }}</span>
+                        <span class="hover text-caption text-length white-color">{{ jobDetail.companyId.info.name }}</span>
                         <q-tooltip :delay="100" anchor="center middle" self="center end">
                             {{ jobDetail.companyId.info.name }}
                         </q-tooltip>
                     </router-link>
                 </q-card-section>
-                <q-card-section v-if="isHot">
-                    <q-chip label="HOT" square dense color="red" class="col-2 text-caption" text-color="white">
+                <q-card-section v-if="isHot ">
+                    <q-chip label="HOT" square dense color="red" class="col-2 text-caption hot-edit" text-color="white">
                     </q-chip>
                 </q-card-section>
             </q-card>
         </div>
         <div v-else class="big-card">
 
-            <q-card class="my-card fit row no-wrap  ">
+            <q-card class="my-card fit row no-wrap items-center justify-center">
                 <div>
                     <router-link cursor-pointer :to="'/cong-ty/' + jobDetail.companyId.info.name">
                         <q-img fit="contain" class='col-1' loading="lazy" width='150px' ratio="1"
@@ -150,10 +150,18 @@ export default {
 .gray-color {
     color: gainsboro;
 }
+.white-color{
+    color: #000;
+}
+
+.background-red {
+    background-color: rgba(238, 230, 230, 0.99);
+    color: #fff;
+}
 
 .minimize-card {
-    width: 440px;
-    height: 100px;
+    width: 400px;
+    height: 150px;
 }
 
 
@@ -182,10 +190,20 @@ export default {
 }
 
 .color-salary {
-
     color: $warning;
     font-size: 12px;
     text-align: right;
+}
+
+.hot-edit{
+    position: absolute;
+    top: -60px;
+    right: -18px;
+    width:100%;
+    display: flex;
+    font-size: 10px;
+    align-items: center;
+    justify-content: center;
 }
 
 

@@ -2,8 +2,7 @@
     <div v-if="loading">
         <div class="row q-gutter-lg">
             <q-card class="col items-center q-gutter-xs card-loading" v-for="(item, index ) in Array(6)" :key="'vr-field-' + index">
-               
-
+            
                     <q-skeleton type="rect" size="100px"></q-skeleton>
                     
                     <q-skeleton type="text" width="200px" height="40px"></q-skeleton>
@@ -20,8 +19,8 @@
             control-color="negative" arrows height="250px" class="bg-grey-1">
 
             <q-carousel-slide v-for="(items, index) in topAreaWithCount" :key="'slide' + index" :name="index + 1"
-                class="row no-wrap ">
-                <div class="row q-gutter-lg ">
+                class="row no-wrap justify-center">
+                <div class="row q-gutter-lg items-center justify-center">
                     <q-card v-for="(item, index1) in items" :key="index1" class="my-card  cursor-pointer q-hoverable ">
                         <span class=""></span>
                         <div class=" card-container">

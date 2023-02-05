@@ -2,9 +2,9 @@
     <div class="" style="">
 
         <q-form @submit="onSubmit" class=" fit row no-wrap justify-start items-center ">
-            <q-input class="search-ba q-pr-sm" filled name="text" style="width: 400px" :dense="true"
-                input-class="text-body2" bg-color="grey-3" color="negative" v-model="searchStore.text"
-                placeholder="Tìm kiếm công việc, kĩ năng,...">
+            <q-input class="search-ba q-pr-sm searchmain-padding  " filled name="text" style="width: 400px" :dense="true"
+                input-class="text-body2 padding-input" bg-color="grey-3" color="negative" v-model="searchStore.text"
+                placeholder="Tên công việc, kỹ năng">
                 <template v-slot:append>
                     <q-icon v-if="searchStore.text !== ''" name="close" @click="searchStore.text = ''"
                         class="cursor-pointer" />
@@ -16,7 +16,8 @@
             <q-select class="q-pr-md" label="Ngành nghề (tối đa 2)" name="workingAreas" clearable
                 model-value="workingAreas" max-values="2" :dense="true" bg-color="grey-3" color="negative" outlined
                 v-model="workingAreas" multiple :options="workingAreasOptions" style="width: 250px" />
-            <q-btn label="Tìm kiếm" type="submit" color="negative" />
+                
+            <q-btn class="" label="Tìm kiếm" type="submit" color="negative" />
         </q-form>
 
     </div>
@@ -101,19 +102,11 @@ export default {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.padding-input {
+    padding: 0 !important;
+}
 </style>
   
