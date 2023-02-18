@@ -41,9 +41,11 @@
                 </div>
                 <q-card-section class="col-7">
                     <router-link :to="'/viec-lam/' + jobDetail.info.name + '---' + jobDetail.companyId._id">
-                        <div class="color-negative text-subtitle2 text-weight-bold">{{ jobDetail.info.name }}</div>
+                        <div class="color-negative text-subtitle2 text-weight-bold costume">{{ jobDetail.info.name }}
+                            <span class="text-subtitle2 job-score" v-if="jobDetail.score">{{ jobDetail.score.toFixed(1) }} P</span>
+                        </div>
                         <q-tooltip :delay="100" anchor="center right" self="center middle">
-                            {{ jobDetail.info.name }}
+                            {{ jobDetail.info.name }} 
                         </q-tooltip>
                     </router-link>
                     <router-link cursor-pointer :to="'/cong-ty/' + jobDetail.companyId.info.name">
@@ -130,15 +132,18 @@ export default {
         isHot: Boolean
     },
     setup(props) {
-        // console.log(props)
         return {
             isMinimize: props.isMinimize,
             jobDetail: props.jobDetail,
             isHot: props.isHot,
+            
             onClickTag(evt) {
                 //TO DO: redirect sang search skill đó
                 console.log(evt.path[0].textContent)
-            }
+            },
+            // formattedScore() {
+            //     return jobDetail.score.toFixed(3)
+            // }
         }
     },
 
@@ -179,6 +184,16 @@ export default {
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
+.costume {
+    display: flex;
+    justify-content: space-between;
+}
+// .job-score {
+//     width: 48px;
+//     overflow: hidden;
+//     display: flex;
+// }
 
 .text-length2 {
     display: block;

@@ -22,7 +22,6 @@
             <q-list separator class="fit">
               <q-item dense>
                 <q-item-section>
-
                   <CardJobDetail class="q-my-xs" v-for="(item, index) in searchResult" :key="item.info.name + index"
                     :isMinimize="false" :isHot="false" :jobDetail="item"></CardJobDetail>
                 </q-item-section>
@@ -154,6 +153,7 @@ export default {
         if (data) {
           this.searchResult = data.data
           this.totalResult = data.total;
+          console.log(this.searchResult)
         }
         // console.log(data);
         this.loading = false;
@@ -161,6 +161,7 @@ export default {
       })
     }
   }
+  
 }
 </script>
 <style lang="scss">

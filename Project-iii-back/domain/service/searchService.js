@@ -58,7 +58,7 @@ const SearchService = {
         let total = 0;
         let result;
         if (body.text) {
-            result = await Job.find(newQuery).sort({ score: { $meta: "textScore" } }).limit(limit).skip(limit * pageNumber)
+            result = await Job.find(newQuery).sort({  score: { $meta: "textScore" },'info.outdate': 1 , }).limit(limit).skip(limit * pageNumber)
                 // .select({ status: 0, "info.name": 1, 'info.type': 1, "info.workingAddress.province": 1, "info.salaryRate": 1, "info.keyword": 1, "info.outdate": 1, "info.createdAt": 1, "info.updatedAt": 1 })
                 .select({
                     companyId: 1,
@@ -78,6 +78,7 @@ const SearchService = {
                     },
                     createdAt: 1,
                     updatedAt: 1,
+                    score: { $meta: "textScore" }
                 })
 
                 .populate({ path: "companyId", select: { "info.name": 1, "info.logo": 1 } });
@@ -105,6 +106,7 @@ const SearchService = {
                 })
                 .populate({ path: "companyId", select: { "info.name": 1, "info.logo": 1 } });
         }
+        // console.log(result)
         //TO DO: làm thêm filter skip limit offset
         total = await Job.count(newQuery)
         if (result) {
@@ -113,8 +115,6 @@ const SearchService = {
             throw new Error(" error")
         }
     },
- 
-
 }
 
 

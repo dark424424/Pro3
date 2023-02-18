@@ -6,7 +6,6 @@ var authorize = require("../../config/authorize")
 
 router.get("/only-name", auth.required, authorize.canReadSystemSettings, async (req,res)=>{
     const {companyId} = req;
-    
     try {
         const listRole = await roleService.findAllAndOnlyNameOfCompany(companyId);
         res.json(listRole)
